@@ -329,13 +329,13 @@ public class UpdateQuestionFrame extends javax.swing.JFrame {
             String correctAnsw = ComboBoxChoices.getSelectedItem().toString();
             Connection con = connect();
             String SQL = "UPDATE Questions \n"
-                    + "SET QE_Questions = '"+QTN+"', QE_Condition = 'MULTIPLE',\n"
+                    + "SET QE_Questions = '"+QTN+"', QE_Condition = 'MULTIPLE'\n"
                     + "WHERE TA_ID = '"+Questions_TA_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.execute();
             pst.close();
                      String SQL2 = "UPDATE AnswersSingle \n"
-                    + "SET AN_A = '"+a+"', AN_B = '"+b+"', AN_C = '"+c+"', AN_D = '"+d+"', AN_CorrectAns = '"+correctAnsw+"',\n"
+                    + "SET AN_A = '"+a+"', AN_B = '"+b+"', AN_C = '"+c+"', AN_D = '"+d+"', AN_CorrectAns = '"+correctAnsw+"' \n"
                     + "WHERE QE_ID = '"+Questions_QE_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
             pst = con.prepareStatement(SQL2);
             pst.execute();
@@ -379,18 +379,17 @@ public class UpdateQuestionFrame extends javax.swing.JFrame {
             String answer = TextFieldAnswerText.getText();
             int QuizTitleID = getIDQuizTitle(title);
             Connection con = connect();
-            PreparedStatement pst = con.prepareStatement("INSERT INTO Questions(TA_ID,QT_ID,QE_Questions,QE_Condition) VALUES(?,?,?,?)");
-            pst.setInt(1, getUserID(user));
-            pst.setInt(2, QuizTitleID);
-            pst.setString(3, QTN);
-            pst.setString(4, "TEXT");
+            String SQL = "UPDATE Questions \n"
+                    + "SET QE_Questions = '"+QTN+"', QE_Condition = 'MULTIPLE'\n"
+                    + "WHERE TA_ID = '"+Questions_TA_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.execute();
             pst.close();
-
-            pst = con.prepareStatement("INSERT INTO AnswersSingle(QE_ID,QT_ID,AN_Answers) VALUES(?,?,?)");
-            pst.setInt(1, getIDQuestions(QuizTitleID));
-            pst.setInt(2, QuizTitleID);
-            pst.setString(3, answer);
+             
+               String SQL2 = "UPDATE AnswersSingle \n"
+                    + "SET AN_Answers = '"+answer+"' \n"
+                    + "WHERE QE_ID = '"+Questions_QE_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
+            pst = con.prepareStatement(SQL2);
             pst.execute();
             pst.close();
             JOptionPane.showMessageDialog(null, "Successfully added");

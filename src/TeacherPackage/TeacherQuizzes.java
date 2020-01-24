@@ -53,7 +53,7 @@ public class TeacherQuizzes extends javax.swing.JFrame {
         int xsize = (int) tk.getScreenSize().getWidth();
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
-   
+        System.out.println(getUserID(user));
         updatetable1(getUserID(user));
          jTable1.setDefaultEditor(Object.class, null);
     }

@@ -402,7 +402,7 @@ public int getUserID(String user) throws SQLException{
             pst.setInt(1, getUserID(user));
             pst.setInt(2, QuizTitleID);
             pst.setString(3, QTN);
-            pst.setString(4, "TEXT");
+            pst.setString(4, "1");
             pst.execute();
             pst.close();
 

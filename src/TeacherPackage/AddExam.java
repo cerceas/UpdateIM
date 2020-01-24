@@ -59,7 +59,6 @@ public class AddExam extends javax.swing.JFrame {
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
           LabelTitleEXAM.setText(title);
-          System.out.println(getQuizID(title));
           updatetable1(getUserID(this.user),getQuizID(this.title));
           jTable1.setDefaultEditor(Object.class, null);
     }
