@@ -61,6 +61,7 @@ public class AddExam extends javax.swing.JFrame {
           LabelTitleEXAM.setText(title);
           System.out.println(getQuizID(title));
           updatetable1(getUserID(this.user),getQuizID(this.title));
+          jTable1.setDefaultEditor(Object.class, null);
     }
     public int getUserID(String user) throws SQLException{
         try {
@@ -164,7 +165,7 @@ public class AddExam extends javax.swing.JFrame {
         jPanel1.add(LabelTitleEXAM);
         LabelTitleEXAM.setBounds(440, 40, 230, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\GUIPROJECT-master\\src\\BG\\AddExam.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\UpdatedIMProject-master\\src\\BG\\AddExam.png")); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1965, 768);
@@ -273,17 +274,18 @@ public class AddExam extends javax.swing.JFrame {
             PreparedStatement pst=conn.prepareStatement(sql);
             ResultSet rs=pst.executeQuery();
             if(rs.next()){
-               Questions_TA_ID=rs.getInt("Questions.TA_ID");
-               Questions_QT_ID=rs.getInt("Questions.QT_ID");
-               Questions_QE_ID=rs.getInt("Questions.QE_ID");
-               Questions_QE_Questions=rs.getString("Questions.QE_Questions");
-               Questions_QE_Condition=rs.getString("Questions.QE_Condition");
-               AnswersSingle_AN_Answers=rs.getString("AnswersSingle.AN_Answers");
-               AnswersSingle_AN_CorrectAns=rs.getString("AnswersSingle.AN_CorrectAns");
-               AnswersSingle_AN_A=rs.getString("AnswersSingle.AN_A");
-                AnswersSingle_AN_B=rs.getString("AnswersSingle.AN_B");       
-               AnswersSingle_AN_C=rs.getString("AnswersSingle.AN_C");
-                AnswersSingle_AN_D=rs.getString("AnswersSingle.AN_D");       
+               Questions_TA_ID=rs.getInt(1);
+               Questions_QT_ID=rs.getInt(2);
+               Questions_QE_ID=rs.getInt(3);
+               Questions_QE_Questions=rs.getString(4);
+               Questions_QE_Condition=rs.getString(5);
+               AnswersSingle_AN_Answers=rs.getString(6);
+               AnswersSingle_AN_CorrectAns=rs.getString(7);
+               AnswersSingle_AN_A=rs.getString(8);
+                AnswersSingle_AN_B=rs.getString(9);       
+               AnswersSingle_AN_C=rs.getString(10);
+                AnswersSingle_AN_D=rs.getString(10);    
+                System.out.println(Questions_QE_Condition);
             }
         }catch(Exception e){
             System.out.println(e);

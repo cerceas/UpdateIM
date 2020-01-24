@@ -327,27 +327,20 @@ public class UpdateQuestionFrame extends javax.swing.JFrame {
             String c = TextFieldC.getText();
             String d = TextFieldD.getText();
             String correctAnsw = ComboBoxChoices.getSelectedItem().toString();
-            int QuizTitleID = getIDQuizTitle(title);
             Connection con = connect();
-            PreparedStatement pst = con.prepareStatement("INSERT INTO Questions(TA_ID,QT_ID,QE_Questions,QE_Condition) VALUES(?,?,?,?)");
-            pst.setInt(1, getUserID(user));
-            pst.setInt(2, QuizTitleID);
-            pst.setString(3, QTN);
-            pst.setString(4, "MULTIPLE");
+            String SQL = "UPDATE Questions \n"
+                    + "SET QE_Questions = '"+QTN+"', QE_Condition = 'MULTIPLE',\n"
+                    + "WHERE TA_ID = '"+Questions_TA_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.execute();
             pst.close();
-
-            pst = con.prepareStatement("INSERT INTO AnswersSingle(QE_ID,QT_ID,AN_A,AN_B,AN_C,AN_D,AN_CorrectAns) VALUES(?,?,?,?,?,?,?)");
-            pst.setInt(1, getIDQuestions(QuizTitleID));
-            pst.setInt(2, QuizTitleID);
-            pst.setString(3, a);
-            pst.setString(4, b);
-            pst.setString(5, c);
-            pst.setString(6, d);
-            pst.setString(7, correctAnsw);
+                     String SQL2 = "UPDATE AnswersSingle \n"
+                    + "SET AN_A = '"+a+"', AN_B = '"+b+"', AN_C = '"+c+"', AN_D = '"+d+"', AN_CorrectAns = '"+correctAnsw+"',\n"
+                    + "WHERE QE_ID = '"+Questions_QE_ID+"' AND QT_ID = '"+Questions_QT_ID+"'";
+            pst = con.prepareStatement(SQL2);
             pst.execute();
             pst.close();
-            JOptionPane.showMessageDialog(null, "Successfully added");
+            JOptionPane.showMessageDialog(null, "Successfully Updated");
             setToEmpty();
         } catch (SQLException ex) {
             Logger.getLogger(UpdateQuestionFrame.class.getName()).log(Level.SEVERE, null, ex);

@@ -48,6 +48,7 @@ public class TitleQuiz extends javax.swing.JFrame {
         int ysize = (int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
         this.user=user;
+        
     }
 
     /**
@@ -77,7 +78,7 @@ public class TitleQuiz extends javax.swing.JFrame {
         jPanel1.add(TextFTitleExam);
         TextFTitleExam.setBounds(700, 250, 440, 40);
 
-        blank.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\GUIPROJECT-master\\src\\BG\\TitleAdd.png")); // NOI18N
+        blank.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\UpdatedIMProject-master\\src\\BG\\TitleAdd.png")); // NOI18N
         blank.setText("jLabel1");
         jPanel1.add(blank);
         blank.setBounds(0, 0, 1965, 768);

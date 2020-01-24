@@ -90,7 +90,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(ERRORTV);
         ERRORTV.setBounds(850, 540, 250, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\GUIPROJECT-master\\src\\BG\\Login.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\UpdatedIMProject-master\\src\\BG\\Login.png")); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1965, 768);

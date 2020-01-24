@@ -55,6 +55,7 @@ public class TeacherQuizzes extends javax.swing.JFrame {
         this.setSize(xsize, ysize);
    
         updatetable1(getUserID(user));
+         jTable1.setDefaultEditor(Object.class, null);
     }
 
     private void updatetable1(int user) {
@@ -153,7 +154,7 @@ public class TeacherQuizzes extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(30, 170, 940, 560);
 
-        blank.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\GUIPROJECT-master\\src\\BG\\Quizzes.png")); // NOI18N
+        blank.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cerceas Bulawan\\Documents\\NetBeansProjects\\UpdatedIMProject-master\\src\\BG\\Quizzes.png")); // NOI18N
         blank.setText("jLabel1");
         jPanel1.add(blank);
         blank.setBounds(0, 0, 1965, 768);
